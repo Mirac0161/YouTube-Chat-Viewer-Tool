@@ -1,1 +1,65 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YouTube Live Chat Viewer</title>
+  <link rel="stylesheet" href="setting.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="card" aria-label="YouTube Live Chat Viewer">
+      <header class="card__header">
+        <div class="brand">
+          <span class="flag" aria-hidden="true">
+            <svg viewBox="0 0 900 600" width="28" height="18" focusable="false">
+              <rect width="900" height="600" fill="#e30a17"></rect>
+              <circle cx="360" cy="300" r="150" fill="#fff"></circle>
+              <circle cx="405" cy="300" r="120" fill="#e30a17"></circle>
+              <polygon fill="#fff" points="540,300 597,318 597,378 633,330 690,348 654,300 690,252 633,270 597,222 597,282"></polygon>
+            </svg>
+          </span>
+          <h1 class="title">YouTube Live Chat Viewer</h1>
+        </div>
+        <p class="subtitle">API’siz izlemek için canlı yayın linkini gir (chat iframe ile açılır).</p>
+      </header>
 
+      <div class="form">
+        <label class="field">
+          <span class="field__label">YouTube Live URL</span>
+          <input id="youtubeUrl" class="field__input" type="url" inputmode="url" placeholder="https://www.youtube.com/watch?v=..." />
+        </label>
+
+        <div class="actions">
+          <button id="startBtn" class="btn btn--primary" type="button">Başlat</button>
+          <button id="stopBtn" class="btn" type="button" disabled>Durdur</button>
+          <button id="clearBtn" class="btn" type="button">Temizle</button>
+        </div>
+
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+      </div>
+
+      <section class="chat" aria-label="Chat">
+        <div class="chat__header">
+          <div class="chat__title">Chat</div>
+          <div class="chat__meta">
+            <span id="chatMeta" class="chat__metaText"></span>
+          </div>
+        </div>
+        <div class="chat__embed">
+          <iframe
+            id="chatFrame"
+            class="chat__iframe"
+            title="YouTube Live Chat"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="autoplay"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
